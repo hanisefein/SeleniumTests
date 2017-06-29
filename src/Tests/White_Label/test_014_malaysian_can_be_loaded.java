@@ -17,7 +17,7 @@ public class test_014_malaysian_can_be_loaded {
     String outcome;
 
     @Test
-    public void wheelsUp_can_be_loaded() {
+    public void malaysian_can_be_loaded() {
 
         //Firefox
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Hsefein\\Downloads\\geckodriver-v0.11.1-win32 (1)\\geckodriver.exe");
