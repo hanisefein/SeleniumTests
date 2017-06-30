@@ -1,16 +1,11 @@
 package Tests.White_Label;
 
-import Constants.Constants;
+import Constants.Utils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +22,7 @@ public class test_002_easyJet_make_booking {
     public void easyJet_make_booking() {
 
         //Firefox
-//        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Hsefein\\Downloads\\geckodriver-v0.17.0-win32\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Hsefein\\Downloads\\geckodriver-v0.17.0-win32\\geckodriver.exe");
 
         WebDriver driver = new FirefoxDriver();
 
@@ -39,18 +34,14 @@ public class test_002_easyJet_make_booking {
         try
         {
             // GET VERSION
-//            System.out.println("Version: " + Constants.AppVersion);
+//            System.out.println("Version: " + AppVersion.AppVersion);
 //            System.out.println();
 
             // NAVIGATE TO AFFILIATE URL
             driver.navigate().to("http://public.htxdev.com/en/?ref=ezy");
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(4);
 
             // MAXIMIZE BROWSER WINDOW
             driver.manage().window().maximize();
@@ -60,42 +51,26 @@ public class test_002_easyJet_make_booking {
             // FROM AIRPORT: MAJORCA
             driver.findElement(By.id("pickup_name")).sendKeys("Majorca");
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(4);
 
             // SELECT MAJORCA
             driver.findElement(By.className("ui-helper-hidden-accessible")).click();
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // TO AIRPORT: ALCUDIA
             driver.findElement(By.id("dropoff_name")).sendKeys("Alcudiamar");
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // SELECT ALCUDIA
             driver.findElement(By.className("ui-helper-hidden-accessible")).click();
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(4);
 
 
 //            // GET CURRENT DATE:
@@ -116,32 +91,20 @@ public class test_002_easyJet_make_booking {
             // CHANGE ARRIVAL DATE
             driver.findElement(By.id("pickupdate")).click();
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             // CLICK > IN CALENDER
             driver.findElement(By.xpath("//*[@id=\"pickupdatepicker\"]/div/ul/li[1]/div/div[1]/table/thead/tr[1]/th[3]/span")).click();
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             // SELECT 15 OF THE MONTH
             driver.findElement(By.xpath("//*[@id=\"pickupdatepicker\"]/div/ul/li[1]/div/div[1]/table/tbody/tr[3]/td[7]")).click();
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             // CLICK CONTINUE
             driver.findElement(By.xpath("//*[@id=\"transfer_search\"]/section/div[2]/div/fieldset[3]/div[1]/div[3]/div[3]/button")).click();
@@ -157,13 +120,8 @@ public class test_002_easyJet_make_booking {
             // 1 CHILD
             driver.findElement(By.id("children")).sendKeys("1");
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
+            // WAIT FOR
+            Utils.wait(2);
             // 1 INFANT
             driver.findElement(By.id("infants")).sendKeys("1");
 
@@ -188,12 +146,8 @@ public class test_002_easyJet_make_booking {
             actual = driver.findElement(By.xpath("//*[@id=\"bookingSummaryScroll\"]/div[1]/dl[1]/dd[1]")).getText();
             expected = "Majorca - Palma Airport, (PMI), Spain (Balearic Islands) to Alcudiamar Botel, 1, Paseo Marítimo, Alcudia, Spain";
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             assertThat(actual, equalTo(expected));
 
@@ -213,12 +167,8 @@ public class test_002_easyJet_make_booking {
             actual = driver.findElement(By.xpath("//*[@id=\"bookingSummaryScroll\"]/div[1]/dl[2]/dd[1]")).getText();
             expected = "Alcudiamar Botel, 1, Paseo Marítimo, Alcudia, Spain to Majorca - Palma Airport, (PMI), Spain (Balearic Islands)";
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             assertThat(actual, equalTo(expected));
 
@@ -240,12 +190,8 @@ public class test_002_easyJet_make_booking {
                     "1 Children (3-11),\n" +
                     "1 Infants (0-2)";
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             assertThat(actual, equalTo(expected));
 
@@ -262,81 +208,59 @@ public class test_002_easyJet_make_booking {
             System.out.println();
 
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             // SELECT SHUTTLE TRANSFER
             driver.findElement(By.xpath("//*[@id=\"product_567220\"]/article/div/div/footer/div[2]/button")).click();
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(6);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(6);
 
 
             // START THE BOOKING PROCESS
 
             // ENTER EMAIL ADDRESS
             driver.findElement(By.id("email")).sendKeys("john@gmail.com");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(2);
 
             //  CONFIRM EMAIL
             driver.findElement(By.id("confirmemail")).sendKeys("john@gmail.com");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(2);
 
             // TITLE
             driver.findElement(By.id("title")).sendKeys("Mr");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(2);
 
             // FIRST NAME
             driver.findElement(By.id("firstname")).sendKeys("John");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(2);
 
             // SURNAME
             driver.findElement(By.id("surname")).sendKeys("Smith");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(2);
 
             // MOBILE NUMBER
             driver.findElement(By.id("mobile")).sendKeys("07777200000");
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(3);
 
             // OUTBOUND FLIGHT
             driver.findElement(By.id("arrivalflightno")).sendKeys("BA755");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(2);
 
             // DEPARTURE AIRPORT
             WebElement airport = driver.findElement(By.id("fromairportcode"));
@@ -350,56 +274,40 @@ public class test_002_easyJet_make_booking {
 
             // INBOUND FLIGHT
             driver.findElement(By.id("departureflightno")).sendKeys("LF55");
-            try {
-                TimeUnit.SECONDS.sleep(6);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(6);
 
             // SELECT PAYPAL PAYMENT
             driver.findElement(By.id("paypalpayment")).click();
 
-            // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(2);
 
             // ADDRESS LINE 1
             driver.findElement(By.id("accountaddress1")).sendKeys("1");
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(3);
 
             // ADDRESS LINE 2
             driver.findElement(By.id("accountaddress2")).sendKeys("Kings Way");
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(3);
 
             // POST CODE
             driver.findElement(By.id("accountpostcode")).sendKeys("BN2 1KK");
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
 
+            // WAIT FOR
+            Utils.wait(4);
 
             // VERIFY PAYPAL BUTTON IS AVAILABLE
             Boolean actual1 = driver.findElement(By.id("paypal_submit")).isEnabled();
             Boolean expected1 = true;
 
-            try {
-                TimeUnit.SECONDS.sleep(20);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(20);
 
             if (actual1 == expected1)
             {

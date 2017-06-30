@@ -1,6 +1,7 @@
 package Tests.White_Label;
 
 
+import Constants.Utils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,11 +34,9 @@ public class test_015_singapore_can_be_loaded {
 
             // NAVIGATE TO AFFILIATE URL
             driver.navigate().to("http://public.htxdev.com/en/?ref=sia");
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(4);
 
             // VERIFY DISPLAY AFFILIATE LOGO IS DISPLAYED
             Boolean actual1 = driver.findElement(By.xpath("/html/body/header/section/div/a[2]/img")).isDisplayed();

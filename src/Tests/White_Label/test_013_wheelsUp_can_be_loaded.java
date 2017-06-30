@@ -1,5 +1,6 @@
 package Tests.White_Label;
 
+import Constants.Utils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,11 +33,9 @@ public class test_013_wheelsUp_can_be_loaded {
 
             // NAVIGATE TO AFFILIATE URL
             driver.navigate().to("http://public.htxdev.com/en/?ref=wun");
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(4);
 
             // VERIFY DISPLAY AFFILIATE LOGO IS DISPLAYED
             Boolean actual1 = driver.findElement(By.xpath("//*[@id=\"toggleIcon\"]/div[2]/div[2]/a/img")).isDisplayed();
