@@ -113,6 +113,8 @@ public class test_001_google_airport_with_route {
             System.out.println(outcome + " Expected FROM date: " + actual);
             System.out.println();
 
+            // WAIT 3 SECONDS
+            Utils.wait(3);
 
             // VERIFY RETURN DATE IS +10 DAYS FROM ARRIVAL
 
