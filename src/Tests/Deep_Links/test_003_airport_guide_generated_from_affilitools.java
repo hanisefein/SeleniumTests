@@ -1,6 +1,7 @@
 package Tests.Deep_Links;
 
 
+import Constants.Utils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -60,12 +61,8 @@ public class test_003_airport_guide_generated_from_affilitools {
             System.out.println(outcome + " Page loaded");
             System.out.println();
 
-            // WAIT 3 SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY SEARCH TOOL HEADERS SHOWS ROUTE MAJORCA TO ALCUDIA
             actual = driver.findElement(By.xpath("//*[@id=\"transfer_search\"]/section/div[1]/section/div/h1")).getText();
@@ -86,12 +83,8 @@ public class test_003_airport_guide_generated_from_affilitools {
             System.out.println(outcome + " Expected header is displayed");
             System.out.println();
 
-            // WAIT 3 SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY ARRIVAL DATE IS +3 DAYS FROM TODAY
 
