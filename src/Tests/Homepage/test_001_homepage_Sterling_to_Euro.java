@@ -13,14 +13,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matcher.*;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class Homepage_01_Sterling_to_USDollar {
+public class test_001_homepage_Sterling_to_Euro {
 
     String actual;
     String expected;
     String outcome;
 
     @Test
-    public void all_currencies_sterling_to_us() {
+    public void change_sterling_to_euro() {
 
         //Firefox
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Hsefein\\Downloads\\geckodriver-v0.11.1-win32 (1)\\geckodriver.exe");
@@ -55,7 +55,8 @@ public class Homepage_01_Sterling_to_USDollar {
                 outcome = "FAIL";
             }
             System.out.println();
-            System.out.println("Found currency: " + actual + " : " + outcome);
+            System.out.println(outcome + " Default Currency found is: " + actual);
+            System.out.println();
 
             // SELECT CURRENCY US
             WebElement currency = driver.findElement(By.id("dropdownMenu2"));
@@ -78,8 +79,9 @@ public class Homepage_01_Sterling_to_USDollar {
                 System.out.println(e);
             }
 
-            actual = driver.findElement(By.xpath("//*[@id=\"dropdownMenu2\"]/span[1]")).getText();
-            expected = "US$";
+            actual = driver.findElement(By.xpath("//*[@id=\"example-navbar-collapse\"]/ul/li[2]/section/ul/li[2]/ul/li[1]")).getText();
+            expected = "€\n" +
+                    "Euro";
 
             assertThat(actual, equalTo(expected));
 
@@ -91,8 +93,11 @@ public class Homepage_01_Sterling_to_USDollar {
             {
                 outcome = "FAIL";
             }
-            System.out.println("Found currency: " + actual + " : " + outcome);
+
             System.out.println();
+            System.out.println(outcome + " Currency changed to: " + actual);
+            System.out.println();
+
 
             if (outcome.equals("PASS"))
             {
