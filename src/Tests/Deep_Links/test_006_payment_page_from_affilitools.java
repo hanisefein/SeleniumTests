@@ -1,6 +1,7 @@
 package Tests.Deep_Links;
 
 
+import Constants.Utils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,11 +36,9 @@ public class test_006_payment_page_from_affilitools {
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/incoming/?productid=568849&bookingtypecode=RTN&departuredatetime=2017-08-22 15:15&arrivaldatetime=2017-08-21 10:55&pax=2,1,1&htx_src=deeplink&currency=GBP&ref=htx");
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY PAGE IS LOADED
             actual = driver.getCurrentUrl();
@@ -60,12 +59,8 @@ public class test_006_payment_page_from_affilitools {
             System.out.println(outcome + " Page loaded");
             System.out.println();
 
-            // WAIT 3 SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY ARRIVING DETAILS
             actual = driver.findElement(By.xpath("/html/body/main/div[2]/div/div/div[1]/dl[1]/dd[1]")).getText();
@@ -120,12 +115,8 @@ public class test_006_payment_page_from_affilitools {
             System.out.println(outcome + " Expected Arriving date is displayed");
             System.out.println();
 
-            // WAIT 3 SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY ARRIVING DATE
             actual = driver.findElement(By.xpath("/html/body/main/div[2]/div/div/div[1]/dl[1]/dd[2]/strong[2]")).getText();
@@ -146,12 +137,8 @@ public class test_006_payment_page_from_affilitools {
             System.out.println(outcome + " Expected Arriving time is displayed");
             System.out.println();
 
-            // WAIT 3 SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY DEPARTING DETAILS
             actual = driver.findElement(By.xpath("/html/body/main/div[2]/div/div/div[1]/dl[2]/dd[1]")).getText();
@@ -173,12 +160,9 @@ public class test_006_payment_page_from_affilitools {
             System.out.println();
 
             // GET TODAY'S DATE AND ADD +1
-//            Date date = new Date();
-//            Calendar cal = Calendar.getInstance();
             cal.setTime(date);
             cal.add(Calendar.DATE, 1);
             date = cal.getTime();
-//            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
             actual = driver.findElement(By.xpath("/html/body/main/div[2]/div/div/div[1]/dl[2]/dd[2]/strong[1]")).getText();
             expected = sdf.format(date);

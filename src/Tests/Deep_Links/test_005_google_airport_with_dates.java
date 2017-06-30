@@ -1,6 +1,7 @@
 package Tests.Deep_Links;
 
 
+import Constants.Utils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,11 +36,9 @@ public class test_005_google_airport_with_dates {
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/transfers/spain-mainland/barcelona-airport?bookingtypeid=1&adults=2&pickupdate=2017-06-21&pickuphour=15&pickupmin=15&pickupdatetime=2017-06-21T14%3A00&returndate=2017-06-24&returnhour=16&returnmin=45&returndatetime=2017-06-24T14%3A00&airportid=32&airportgroupid=1&airportgatewaytype=AIR&airporturl=barcelona-airport&airportgroupurl=spain-mainland&pickup=32&fromtype=AIR&fromcode=32&totype=RST");
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY PAGE IS LOADED
             actual = driver.getCurrentUrl();
@@ -86,12 +85,8 @@ public class test_005_google_airport_with_dates {
             System.out.println(outcome + " Expected header is displayed");
             System.out.println();
 
-            // WAIT 3 SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(3);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            // WAIT FOR
+            Utils.wait(3);
 
             // VERIFY ARRIVAL DATE IS -8 DAYS FROM TODAY
 
