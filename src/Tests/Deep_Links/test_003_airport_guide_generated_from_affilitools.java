@@ -32,7 +32,7 @@ public class test_003_airport_guide_generated_from_affilitools {
         try
         {
             // GET VERSION
-//            System.out.println("Version: " + Constants.AppVersion);
+//            System.out.println("Version: " + AppVersion.AppVersion);
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/incoming/?IATA=ALC&htx_src=deeplink&currency=GBP&ref=htx");

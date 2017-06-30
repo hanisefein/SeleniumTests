@@ -32,7 +32,7 @@ public class test_006_payment_page_from_affilitools {
         try
         {
             // GET VERSION
-//            System.out.println("Version: " + Constants.AppVersion);
+//            System.out.println("Version: " + AppVersion.AppVersion);
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/incoming/?productid=568849&bookingtypecode=RTN&departuredatetime=2017-08-22 15:15&arrivaldatetime=2017-08-21 10:55&pax=2,1,1&htx_src=deeplink&currency=GBP&ref=htx");

@@ -32,7 +32,7 @@ public class test_005_google_airport_with_dates {
         try
         {
             // GET VERSION
-//            System.out.println("Version: " + Constants.AppVersion);
+//            System.out.println("Version: " + AppVersion.AppVersion);
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/transfers/spain-mainland/barcelona-airport?bookingtypeid=1&adults=2&pickupdate=2017-06-21&pickuphour=15&pickupmin=15&pickupdatetime=2017-06-21T14%3A00&returndate=2017-06-24&returnhour=16&returnmin=45&returndatetime=2017-06-24T14%3A00&airportid=32&airportgroupid=1&airportgatewaytype=AIR&airporturl=barcelona-airport&airportgroupurl=spain-mainland&pickup=32&fromtype=AIR&fromcode=32&totype=RST");

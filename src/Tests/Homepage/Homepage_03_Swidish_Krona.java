@@ -90,9 +90,9 @@ public class Homepage_03_Swidish_Krona {
         {
             System.out.println(e);
         }
-        finally
-        {
-            driver.quit();
-        }
+//        finally
+//        {
+//            driver.quit();
+//        }
     }
 }

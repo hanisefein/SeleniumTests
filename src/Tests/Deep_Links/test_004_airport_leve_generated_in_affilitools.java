@@ -34,7 +34,7 @@ public class test_004_airport_leve_generated_in_affilitools {
         try
         {
             // GET VERSION
-//            System.out.println("Version: " + Constants.AppVersion);
+//            System.out.println("Version: " + AppVersion.AppVersion);
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/incoming/?IATA=ALC&resortid=13&bookingtypecode=RTN&htx_src=deeplink&currency=GBP&ref=htx");

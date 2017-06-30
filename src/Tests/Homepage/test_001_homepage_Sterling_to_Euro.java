@@ -1,6 +1,5 @@
 package Tests.Homepage;
 
-import Constants.Constants;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matcher.*;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class test_001_homepage_Sterling_to_Euro {
@@ -30,7 +28,7 @@ public class test_001_homepage_Sterling_to_Euro {
         try
         {
             // GET VERSION
-//            System.out.println("Version: " + Constants.AppVersion);
+//            System.out.println("Version: " + AppVersion.AppVersion);
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/?ref=htx");
@@ -69,8 +67,8 @@ public class test_001_homepage_Sterling_to_Euro {
                 System.out.println(e);
             }
 
-            // SELECT US
-            driver.findElement(By.xpath("//*[@id=\"example-navbar-collapse\"]/ul/li[2]/section/ul/li[2]/ul/li[1]")).click();
+            // SELECT EURO
+            driver.findElement(By.xpath("//*[@id=\"example-navbar-collapse\"]/ul/li[2]/section/ul/li[2]/ul/li[3]")).click();
 
             // WAIT 3 SECONDS
             try {
@@ -79,9 +77,8 @@ public class test_001_homepage_Sterling_to_Euro {
                 System.out.println(e);
             }
 
-            actual = driver.findElement(By.xpath("//*[@id=\"example-navbar-collapse\"]/ul/li[2]/section/ul/li[2]/ul/li[1]")).getText();
-            expected = "€\n" +
-                    "Euro";
+            actual = driver.findElement(By.xpath("//*[@id=\"dropdownMenu2\"]/span[1]")).getText();
+            expected = "";
 
             assertThat(actual, equalTo(expected));
 
@@ -113,9 +110,9 @@ public class test_001_homepage_Sterling_to_Euro {
         {
             System.out.println(e);
         }
-        finally
-        {
-            driver.quit();
-        }
+//        finally
+//        {
+//            driver.quit();
+//        }
     }
 }

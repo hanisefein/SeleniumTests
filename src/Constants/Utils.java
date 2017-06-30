@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Utils {
 
-    public static void wait(int args)
+   public static void wait(int args)
     {
 // WAIT IN SECONDS
         try

@@ -1,5 +1,5 @@
 package Constants;
 
-public interface Constants {
+public interface AppVersion {
     String AppVersion = "8.62";
 }

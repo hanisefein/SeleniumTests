@@ -31,7 +31,7 @@ public class test_002_google_airport_without_route {
         try
         {
             // GET VERSION
-//            System.out.println("Version: " + Constants.AppVersion);
+//            System.out.println("Version: " + AppVersion.AppVersion);
 //            System.out.println();
 
             driver.navigate().to("http://public.htxdev.com/en/transfers/spain-balearic-islands/ibiza-airport");

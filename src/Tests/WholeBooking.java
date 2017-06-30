@@ -1,27 +1,16 @@
 package Tests;
 
-import Constants.Constants;
+import Constants.AppVersion;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-import org.apache.bcel.generic.Select;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.openqa.selenium.Keys.ENTER;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class WholeBooking {
 
@@ -56,7 +45,7 @@ public class WholeBooking {
         try {
 
             // GET VERSION
-            System.out.println("Version: " + Constants.AppVersion);
+            System.out.println("Version: " + AppVersion.AppVersion);
             System.out.println();
 
             driver.navigate().to("http://public.htxdev.com");

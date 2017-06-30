@@ -1,6 +1,6 @@
 package Tests;
 
-import Constants.Constants;
+import Constants.AppVersion;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +28,7 @@ public class CheckFromandTo {
             try {
 
             // GET VERSION
-            System.out.println("Version: " + Constants.AppVersion);
+            System.out.println("Version: " + AppVersion.AppVersion);
             System.out.println();
 
             driver.navigate().to("http://holidaytaxis.com");
