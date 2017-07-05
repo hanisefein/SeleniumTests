@@ -15,14 +15,14 @@ import java.util.concurrent.TimeUnit;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class test_003_booking_j_ie11_paypal {
+public class test_003_booking_j_firefox_paypal {
 
     String actual;
     String expected;
     String outcome;
 
     @Test
-    public void booking_journey_ie11_paypal() {
+    public void booking_journey_firefox_paypal() {
 
 //        //IE 11
 //        DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
