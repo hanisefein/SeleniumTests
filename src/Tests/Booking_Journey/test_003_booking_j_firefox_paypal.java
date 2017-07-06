@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Thread.sleep;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -75,7 +76,6 @@ public class test_003_booking_j_firefox_paypal {
             // WAIT FOR
             Utils.wait(4);
 
-
 //            // GET CURRENT DATE:
 //            String currArrivaleDate = driver.findElement(By.id("pickupdate")).getAttribute("value").toString();
 //            Calendar cal = Calendar.getInstance();
@@ -95,62 +95,50 @@ public class test_003_booking_j_firefox_paypal {
             driver.findElement(By.id("pickupdate")).click();
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // CLICK > IN CALENDER
             driver.findElement(By.xpath("//*[@id=\"pickupdatepicker\"]/div/ul/li[1]/div/div[1]/table/thead/tr[1]/th[3]/span")).click();
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // SELECT 15 OF THE MONTH
             driver.findElement(By.xpath("//*[@id=\"pickupdatepicker\"]/div/ul/li[1]/div/div[1]/table/tbody/tr[3]/td[7]")).click();
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // CLICK CONTINUE
             driver.findElement(By.xpath("//*[@id=\"transfer_search\"]/section/div[2]/div/fieldset[3]/div[1]/div[3]/div[3]/button")).click();
 
             // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-
+            Utils.wait(4);
 
             // 1 CHILD
             driver.findElement(By.id("children")).sendKeys("1");
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
+
             // 1 INFANT
             driver.findElement(By.id("infants")).sendKeys("1");
 
             // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            Utils.wait(4);
 
             // CLICK BOOK NOW
             driver.findElement(By.id("js-booknow-btn")).click();
 
             // WAIT IN SECONDS
-            try {
-                TimeUnit.SECONDS.sleep(10);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            sleep(10000);
 
             // VERIFY OUT DETAILS
             actual = driver.findElement(By.xpath("//*[@id=\"bookingSummaryScroll\"]/div[1]/dl[1]/dd[1]")).getText();
             expected = "Majorca - Palma Airport, (PMI), Spain (Balearic Islands) to Alcudiamar Botel, 1, Paseo Marítimo, Alcudia, Spain";
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             assertThat(actual, equalTo(expected));
 
@@ -171,7 +159,7 @@ public class test_003_booking_j_firefox_paypal {
             expected = "Alcudiamar Botel, 1, Paseo Marítimo, Alcudia, Spain to Majorca - Palma Airport, (PMI), Spain (Balearic Islands)";
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             assertThat(actual, equalTo(expected));
 
@@ -194,7 +182,7 @@ public class test_003_booking_j_firefox_paypal {
                     "1 Infants (0-2)";
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             assertThat(actual, equalTo(expected));
 
@@ -212,14 +200,16 @@ public class test_003_booking_j_firefox_paypal {
 
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // SELECT SHUTTLE TRANSFER
             driver.findElement(By.xpath("//*[@id=\"product_567220\"]/article/div/div/footer/div[2]/button")).click();
 
             // WAIT FOR
-            Utils.wait(15);
+            sleep(15000);
 
+            // FORM LOADED
+            System.out.println("Form loaded...");
 
             // START THE BOOKING PROCESS
 
@@ -227,34 +217,37 @@ public class test_003_booking_j_firefox_paypal {
             driver.findElement(By.id("email")).sendKeys("john@gmail.com");
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             //  CONFIRM EMAIL
             driver.findElement(By.id("confirmemail")).sendKeys("john@gmail.com");
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // TITLE
             driver.findElement(By.id("title")).sendKeys("Mr");
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // FIRST NAME
             driver.findElement(By.id("firstname")).sendKeys("John");
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // SURNAME
             driver.findElement(By.id("surname")).sendKeys("Smith");
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // MOBILE NUMBER
             driver.findElement(By.id("mobile")).sendKeys("07777200000");
+
+            // FILLED PASSENGER DETAILS
+            System.out.println("Filled passenger deails");
 
             // WAIT FOR
             Utils.wait(3);
@@ -263,20 +256,21 @@ public class test_003_booking_j_firefox_paypal {
             driver.findElement(By.id("arrivalflightno")).sendKeys("BA755");
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // DEPARTURE AIRPORT
             WebElement airport = driver.findElement(By.id("fromairportcode"));
             airport.click();
             airport.sendKeys("lon");
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+
+            // WAIT FOR
+            Utils.wait(4);
 
             // INBOUND FLIGHT
             driver.findElement(By.id("departureflightno")).sendKeys("LF55");
+
+            // FILLED FLIGHT DETAILS
+            System.out.println("Filled flight deails");
 
             // WAIT FOR
             Utils.wait(6);
@@ -291,7 +285,7 @@ public class test_003_booking_j_firefox_paypal {
             driver.findElement(By.id("paypalpayment")).click();
 
             // WAIT FOR
-            Utils.wait(2);
+            Utils.wait(4);
 
             // ADDRESS LINE 1
             driver.findElement(By.id("accountaddress1")).sendKeys("1");
@@ -316,7 +310,7 @@ public class test_003_booking_j_firefox_paypal {
             Boolean expected1 = true;
 
             // WAIT FOR
-            Utils.wait(20);
+            sleep(20000);
 
             if (actual1 == expected1)
             {
@@ -345,10 +339,10 @@ public class test_003_booking_j_firefox_paypal {
         {
             System.out.println(e);
         }
-//        finally
-//        {
-//            driver.quit();
-//        }
+        finally
+        {
+            driver.quit();
+        }
     }
 
 }
