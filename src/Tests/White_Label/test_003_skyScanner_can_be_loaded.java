@@ -20,7 +20,7 @@ public class test_003_skyScanner_can_be_loaded {
     public void easyJet_can_be_loaded() {
 
         //Firefox
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Hsefein\\Downloads\\geckodriver-v0.11.1-win32 (1)\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Hsefein\\Downloads\\geckodriver-v0.17.0-win32\\geckodriver.exe");
 
         WebDriver driver = new FirefoxDriver();
 
