@@ -61,7 +61,7 @@ public class test_001_homepage_Sterling_to_EURO {
             // WAIT 3 SECONDS
             Utils.wait(3);
 
-            // SELECT US
+            // SELECT EURO
             driver.findElement(By.xpath("//*[@id=\"example-navbar-collapse\"]/ul/li[2]/section/ul/li[2]/ul/li[1]")).click();
 
             // WAIT 3 SECONDS
